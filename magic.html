@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>My Magic Word Lab</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container py-4">
+            <h1>My Magic World Lab</h1>
+            <p>Discover types, find and swap words and catch error</p>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">What Type Is It?</h2>
+                    <button class="btn btn-warning" onclick="checktypes()">Reveal the types</button>
+                    <div id="result1" class="box p-3 mt-3 rounded">Press the buttons to reveal the secret types</div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Switch the type</h2>
+                    <input id="num1" class="form-control mb-2" placeholder="Type any number here: ">
+                    <button class="btn btn-warning" onclick="tostr()">Turn into text</button>
+                    <button class="btn btn-warning" onclick="tonum()">Turn into numbers</button>
+                    <div id="result2" class="box p-3 mt-3 rounded">Type a number above and press a number</div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Find and swap a word</h2>
+                    <input id="findw" class="form-control mb-2" placeholder="Word to find: ">
+                    <input id="swapw" class="form-control mb-2" placeholder="Word to swap: ">
+                    <button class="btn btn-warning" onclick="search()">Find it</button>
+                    <button class="btn btn-warning" onclick="replace()">Swap it</button>
+                    <div id="result3" class="box p-3 mt-3 rounded">Sentence: "The dragon flew over the big castle"</div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Catch the mistake</h2>
+                    <input id="div1" class="form-control mb-2" placeholder="Divide 100 by a number or something silly: ">
+                    <button class="btn btn-warning" onclick="trysafe()">Try it</button>
+                    <div id="result3" class="box p-3 mt-3 rounded">Type a number or something else</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var s="The dragon flew over the castle";
+            function checktypes(){
+                document.getElementById("result1").innerHTML=
+                "Score 42 - type:" + typeof 42 + "\n" +
+                "Name 'Alex' - type:" + typeof "Alex" + "\n" +
+                "Game over true - type:" + typeof true; 
+            }
+            function toStr(){
+                var v=document.getElementById("num1").value;
+                document.getElementById("result2").innerHTML="String(" + v +")='" + String(v) + typeof String(v)
+            }
+            function toStr() {
+                    var v = document.getElementById("num1").value;
+                    document.getElementById("result2").innerHTML = "number(" + v + ")='" + number(v) + typeof number(v)
+            }
+            
+            function search() {
+                    var f = document.getElementById("findw").value;
+                    var p=s.search(f);
+                    document.getElementById("result3").innerHTML=f+ "at position" + p
+            }
+            function replace() {
+                    var f = document.getElementById("findw").value;
+                    document.getElementById("result3").innerHTML= s.replace (f,document.getElementById("swapw").value);
+            }
+        </script>
+    </body>
+</html>
